@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demon Slayer RP 2.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Noto+Serif+JP:wght@900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #f1f1f1;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ae67dbcc-91f7-4369-a654-3159c9f4a09f/dgjvnsy-93357d7d-409d-490f-9e31-c1f91a6a41ed.jpg/v1/fill/w_1191,h_671,q_70,strp/high_quality_4k_demon_slayer_wallpaper_by_sdugoten_dgjvnsy-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIxIiwicGF0aCI6IlwvZlwvYWU2N2RiY2MtOTFmNy00MzY5LWE2NTQtMzE1OWM5ZjRhMDlmXC9kZ2p2bnN5LTkzMzU3ZDdkLTQwOWQtNDkwZi05ZTMxLWMxZjkxYTZhNDFlZC5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.0flKyQ5d5NJE4r2sryQ3hHmp5MUlhXSK3Y3aUj2FOVw') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            color: #fff;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        header h1 {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 4rem;
+            margin: 0;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            position: relative;
+            color: #ff4500;
+            animation: fadeIn 2s ease-in-out;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            animation: slideDown 1s ease-in-out;
+        }
+        nav a {
+            color: #ff4500;
+            text-decoration: none;
+            margin: 0.5rem 1rem;
+            font-weight: bold;
+            font-size: 1.25rem;
+            transition: color 0.3s ease-in-out;
+            position: relative;
+        }
+        nav a:hover {
+            color: #fff;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #ff4500;
+            left: 0;
+            bottom: -5px;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease-in-out;
+        }
+        nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        .section {
+            padding: 4rem 2rem;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .section.visible {
+            opacity: 1;
+        }
+        .section:nth-child(even) {
+            background-color: #2a2a2a;
+        }
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ff4500;
+        }
+        .section p {
+            font-size: 1.25rem;
+            line-height: 1.5;
+        }
+        .section a {
+            color: #ff4500;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+        .section a:hover {
+            color: #fff;
+        }
+        .footer {
+            background-color: #000;
+            padding: 2rem;
+            text-align: center;
+        }
+        .footer p {
+            margin: 0;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+            }
+            .section h2 {
+                font-size: 2rem;
+            }
+            .section p {
+                font-size: 1rem;
+            }
+            nav a {
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .section {
+                padding: 2rem 1rem;
+            }
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            .section p {
+                font-size: 0.875rem;
+            }
+            nav a {
+                margin: 0.5rem;
+                font-size: 0.875rem;
+            }
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ff4500;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+        form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            align-self: flex-start;
+        }
+        form input[type="text"], form input[type="email"], form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            color: #333;
+        }
+        form input[type="submit"] {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        form input[type="submit"]:hover {
+            background: #ff1f3a;
+        }
+    </style>
+</head>
+<body>
+
+<header id="home">
+    <h1>Demon Slayer RP 2.0</h1>
+</header>
+
+<nav>
+    <a href="#home" class="nav-link">Home</a>
+    <a href="#about" class="nav-link">Informazioni sul Server</a>
+    <a href="#creators" class="nav-link">Creatori</a>
+    <a href="#terms-age" class="nav-link">Accesso</a>
+    <a href="#terms-conditions" class="nav-link">Regolamento</a>
+    <a href="#contact" class="nav-link">Domande</a>
+</nav>
+
+<section id="about" class="section">
+    <h2>Informazioni sul Server</h2>
+    <p>Il primo GDR a tema Demon Slayer italiano a cura di Kanao, Tanjiro e Sumi!</p>
+    <p>Unisciti al nostro server Discord per un'esperienza di roleplay unica nel mondo di Demon Slayer. Troverai una comunità accogliente e tanti eventi divertenti.</p>
+    <p><a href="https://discord.gg/syDdwEUC9k" target="_blank">Entra nel server Discord</a></p>
+</section>
+
+<section id="creators" class="section">
+    <h2>Informazioni sui Creatori</h2>
+    <p><strong>Kanao:</strong> Kanao è la mente dietro il server, responsabile per la trama principale e l'organizzazione degli eventi. Appassionata di Demon Slayer, porta una grande conoscenza del mondo dei personaggi e della lore.</p>
+    <p><strong>Tanjiro:</strong> Tanjiro è il co-creatore del server e si occupa della gestione delle meccaniche di gioco e del bilanciamento. Con un forte background nei giochi di ruolo, garantisce che ogni sessione sia coinvolgente e ben strutturata.</p>
+    <p><strong>Sumi:</strong> Sumi è il nostro admin e memer principale.</p>
+</section>
+
+<section id="terms-age" class="section">
+    <h2>Accesso al Server</h2>
+    <p>Per accedere al server, è necessario avere almeno 13 anni. Questo è per garantire un ambiente sicuro e appropriato per tutti i giocatori. Se hai meno di 13 anni, puoi partecipare solo se sei accompagnato da un adulto.</p>
+</section>
+
+<section id="terms-conditions" class="section">
+    <h2>Regolamento</h2>
+    <p>Il nostro regolamento è progettato per garantire un'esperienza di gioco equa e rispettosa. Per consultare il regolamento completo, ti invitiamo a entrare nel nostro server Discord e leggere le linee guida.</p>
+    <p><a href="https://discord.gg/syDdwEUC9k" target="_blank">Entra nel server Discord</a></p>
+</section>
+
+<section id="contact" class="section">
+    <h2>Domande</h2>
+    <p>Se hai domande o dubbi, non esitare a contattarci tramite il modulo sottostante o a unirti al nostro server Discord per discutere direttamente con i membri della comunità.</p>
+    <form>
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Messaggio:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <input type="submit" value="Invia">
+    </form>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2024 Demon Slayer RP. Tutti i diritti riservati.</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        const handleScroll = () => {
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                    section.classList.add('visible');
+                } else {
+                    section.classList.remove('visible');
+                }
+            });
+        };
+
+        handleScroll();
+        window.addEventListener('scroll', handleScroll);
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
